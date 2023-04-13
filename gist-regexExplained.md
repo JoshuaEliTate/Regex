@@ -97,6 +97,20 @@ Back-references are used to search for a previouslt matched group inside the sam
 ### Look-ahead and Look-behind
 lookaround assertions matches characters ahead or behind of it but do not send the character, only gives you a match or no match. q(?=u) is a lookahead that searches for a q that is followed by a u but only returns a q. there are negative lookaheads aswell q(?!u) would returns any q that is not followed by a u. (?<=a)b is a lookbehind which would grab any b that is preceeded by an a, whereas (?<!a)b would return any b that is not preceeded by an a
 
+### Matching an Email – /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+
+^([a-z0-9_.-]+) ^ is an anchor and makes it start with  a-z 0-9 or . _ -  [a-z0-9_.-] is a character classes and checks the first part of the email address to make sure it has either a-z 0-9 or . _ -.  The + is a quantifier that specifies that there should be at least one character in this set
+
+the @ matches the at symbol that separates the start from the domain name.
+
+([\da-z.-]+) is a character classes this checks domain name, which includes the domain and any subdomains. [\da-z.-] matches any digit, lowercase letter, dot, or hyphen. The + quantifier specifies that there should be at least one 
+
+.  This checks the period that separates the domain name from the top-level domain.
+
+([a-z.]{2,6}) [a-z.] This checks the domain, can be lowercase letters and periods. {2,6} a quantifier which specifies that there should be between two and six characters.
+
+$/ is an anchor that specifies that the string should end at this point.
+
 ## Author
 
 A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
